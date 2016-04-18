@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <p class="bg-primary"><h1>Your Tasks</h1></p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Creation Date</th>
+            <th>Due Date</th>
+            <th>Type</th>
+            <th></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            <th scope="row">1</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>
+                <button type="button" class="btn btn-success">View</button>
+                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+        {#<tr>#}
+        {#<th scope="row">2</th>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#</tr>#}
+        {#<tr class="success">#}
+        {#<th scope="row">3</th>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#</tr>#}
+        {#<tr>#}
+        {#<th scope="row">4</th>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#</tr>#}
+        {#<tr class="info">#}
+        {#<th scope="row">5</th>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#</tr>#}
+        {#<tr>#}
+        {#<th scope="row">6</th>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#</tr>#}
+        {#<tr class="warning">#}
+        {#<th scope="row">7</th>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#</tr>#}
+        {#<tr>#}
+        {#<th scope="row">8</th>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#</tr>#}
+        {#<tr class="danger">#}
+        {#<th scope="row">9</th>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#<td>Column content</td>#}
+        {#</tr>#}
+        </tbody>
+    </table>
+
+{% endblock %}
