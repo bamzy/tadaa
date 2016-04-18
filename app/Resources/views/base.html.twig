@@ -38,10 +38,27 @@
     <div class="header clearfix">
         <nav>
             <ul class="nav nav-pills pull-right">
+                {% if currentLocation == 'list' %}
                 <li role="presentation" class="active"><a href="./">Home</a></li>
-                <li role="presentation"><a href="./create">Add Todo</a></li>
-                <li role="presentation"><a href="#">About</a></li>
-                <li role="presentation"><a href="#">Contact</a></li>
+                {% else  %}
+                    <li role="presentation"><a href="./">Home</a></li>
+                {% endif %}
+                {% if currentLocation == 'create' %}
+                    <li role="presentation" class="active"><a href="./create">Add Todo</a></li>
+                {% else  %}
+                    <li role="presentation"><a href="./create">Add Todo</a></li>
+                {% endif %}
+                {% if currentLocation == 'about' %}
+                    <li role="presentation" class="active"><a href="./about">About</a></li>
+                {% else  %}
+                    <li role="presentation"><a href="./about">About</a></li>
+                {% endif %}
+                {% if currentLocation == 'contact' %}
+                    <li role="presentation" class="active"><a href="./contact">Contact</a></li>
+                {% else  %}
+                    <li role="presentation"><a href="./contact">Contact</a></li>
+                {% endif %}
+
             </ul>
         </nav>
         <h3 class="text-muted">Tadaa List</h3>
@@ -49,7 +66,7 @@
 
     <div class="jumbotron">
         <h1>Tadaa List</h1>
-        <p class="lead">Welcome to your personal task organizer.</p>
+        <p class="lead">Welcome to your magical task organizer.</p>
         <p><a class="btn btn-lg btn-success" href="./signup" role="button">Sign up today</a></p>
     </div>
 
@@ -66,10 +83,6 @@
         <p class="bg-primary">&copy; 2016 Huco618 Company, Inc.<br></p>
     </footer>
 
-</div> <!-- /container -->
-
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</div>
 </body>
 </html>
