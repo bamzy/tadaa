@@ -138,6 +138,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'AppBundle\\Controller\\ToDoController::signupAction',  '_route' => 'todo_signup',);
             }
 
+            // todo_about
+            if ($pathinfo === '/todos/about') {
+                return array (  '_controller' => 'AppBundle\\Controller\\ToDoController::aboutAction',  '_route' => 'todo_about',);
+            }
+
+            // todo_contact
+            if ($pathinfo === '/todos/contact') {
+                return array (  '_controller' => 'AppBundle\\Controller\\ToDoController::contactAction',  '_route' => 'todo_contact',);
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

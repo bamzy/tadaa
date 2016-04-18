@@ -2,6 +2,10 @@
 
 {% block body %}
 
-    todo update
+    <h2 class="page-header">Update Task</h2>
+    <a class="btn btn-default" href="/todos/">Back to List</a>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 
 {% endblock %}
