@@ -2,6 +2,16 @@
 
 {% block body %}
 
-    todo details
+
+    <h2 class="page-header">{{ task.name }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Description: <strong>{{ task.description }}</strong> </li>
+        <li class="list-group-item">Category:<strong>{{ task.priority }} </strong></li>
+        <li class="list-group-item">Type: <strong>{{ task.type }}</strong> </li>
+        <li class="list-group-item">Due Date:<strong>{{ task.dueDate|date('F j, Y, g:i a') }}</strong></li>
+        <li class="list-group-item">Create Date:<strong>{{ task.dueDate|date('F j, Y, g:i a') }}</strong></li>
+    </ul>
+
+    <a class="btn btn-default" href="/todos/">Back to List</a>
 
 {% endblock %}

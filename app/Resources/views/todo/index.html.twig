@@ -4,6 +4,7 @@
 
 
     <p class="bg-primary"><h1>Your Tasks</h1></p>
+    <hr>
     <table class="table">
         <thead>
         <tr>
@@ -28,9 +29,9 @@
             <td>{{ task.dueDate|date("Y-m-d H:i:s") }}</td>
             <td>{{ task.type }}</td>
             <td>
-                <button type="button" class="btn btn-success">View</button>
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <a type="button" class="btn btn-success" href="./detail/{{ task.id }}">View</a>
+                <a type="button" class="btn btn-primary" href="./update/{{ task.id }}">Edit</a>
+                <a type="button" class="btn btn-danger" href="./delete/{{ task.id }}">Delete</a>
             </td>
         </tr>
         {% endfor %}

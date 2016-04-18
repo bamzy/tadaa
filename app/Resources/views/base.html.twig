@@ -61,7 +61,8 @@
 
             </ul>
         </nav>
-        <h3 class="text-muted">Tadaa List</h3>
+        <h3 class="text-muted">Magic List</h3>
+        <hr>
     </div>
 
     <div class="jumbotron">
@@ -70,14 +71,10 @@
         <p><a class="btn btn-lg btn-success" href="./signup" role="button">Sign up today</a></p>
     </div>
 
-    {#<div class="row marketing">#}
-        {#<div class="col-lg-6">#}
-        {#</div>#}
 
+    {% block body %}{% endblock %}
 
-    {#</div>#}
-            {% block body %}{% endblock %}
-
+    <hr>
     <footer class="footer">
         <p></p>
         <p class="bg-primary">&copy; 2016 Huco618 Company, Inc.<br></p>
