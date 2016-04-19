@@ -43,6 +43,7 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         'todo_signup' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\ToDoController::signupAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/todos/signup',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'todo_about' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\ToDoController::aboutAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/todos/about',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'todo_contact' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\ToDoController::contactAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/todos/contact',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+        'todo_login' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\ToDoController::loginAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/todos/login',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
     );
         }
     }

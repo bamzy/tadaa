@@ -43,6 +43,11 @@
                 {% else  %}
                     <li role="presentation"><a href="./">Home</a></li>
                 {% endif %}
+                {% if currentLocation == 'login' %}
+                    <li role="presentation" class="active"><a href="/login">Login</a></li>
+                {% else  %}
+                    <li role="presentation"><a href="./">Login</a></li>
+                {% endif %}
                 {% if currentLocation == 'create' %}
                     <li role="presentation" class="active"><a href="./create">Add Todo</a></li>
                 {% else  %}

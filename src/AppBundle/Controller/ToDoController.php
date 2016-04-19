@@ -2,17 +2,22 @@
 
 namespace AppBundle\Controller;
 use AppBundle\Entity\Task;
+use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+
 
 class ToDoController extends Controller
 {
@@ -160,6 +165,54 @@ class ToDoController extends Controller
      */
     public function signupAction(Request $request)
     {
+        $user = new User();
+        $form = $this->createFormBuilder($user)
+            ->add('username',TextType::class, array('attr'=>array('class'=>'form-control', 'style' => 'margin-buttom:15px')))
+            ->add('firstname',TextType::class, array('attr'=>array('class'=>'form-control', 'style' => 'margin-buttom:15px')))
+            ->add('lastname',TextType::class, array('attr'=>array('class'=>'form-control', 'style' => 'margin-buttom:15px')))
+            ->add('email',EmailType::class, array('attr'=>array('class'=>'form-control', 'style' => 'margin-buttom:15px')))
+            ->add('plainPassword', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'first_options'  => array('label' => 'Password       :'),
+                'second_options' => array('label' => 'Repeat Password:'),
+                'attr' => array('class' => 'form-control')
+            ))
+            ->add('Register',SubmitType::class, array('attr'=>array('class'=>'btn btn-primary btn-lg', 'style' => 'margin-top:15px')))
+            ->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password = $this->get('security.password_encoder')
+                ->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+
+            $username = $form['username']->getData();
+            $email = $form['email']->getData();
+            $firstName = $form['firstname']->getData();
+            $lastname = $form['lastname']->getData();
+            $creationDate = new \DateTime('now');
+
+
+            $user->setEmail($email);
+            $user->setUsername($username);
+            $user->setFirstName($firstName);
+            $user->setLastName($lastname);
+
+
+            $em = $this->getDoctrine()->getManager();
+            $em -> persist($user);
+            $em->flush();
+            $this->addFlash('notice','Registration Completed');
+            return $this->redirectToRoute('todo_list');
+
+        }
+        return $this->render('todo/signup.html.twig', array(
+            'currentLocation' => 'list',
+            'form'=> $form->createView()
+        ));
+
         return $this->render('todo/signup.html.twig');
     }
     /**
@@ -178,6 +231,15 @@ class ToDoController extends Controller
     {
         return $this->render('todo/contact.html.twig',array(
             'currentLocation' => 'contact'
+        ));
+    }
+    /**
+     * @Route("/todos/login", name="todo_login")
+     */
+    public function loginAction(Request $request)
+    {
+        return $this->render('todo/about.html.twig',array(
+            'currentLocation' => 'login'
         ));
     }
 }

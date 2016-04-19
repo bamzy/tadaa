@@ -148,6 +148,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'AppBundle\\Controller\\ToDoController::contactAction',  '_route' => 'todo_contact',);
             }
 
+            // todo_login
+            if ($pathinfo === '/todos/login') {
+                return array (  '_controller' => 'AppBundle\\Controller\\ToDoController::loginAction',  '_route' => 'todo_login',);
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
